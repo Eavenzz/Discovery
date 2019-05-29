@@ -1,4 +1,4 @@
-// Author: Oliver Rodriguez
+//// Author: Oliver Rodriguez
 
 // Modules to import
 const express = require("express");
@@ -113,27 +113,27 @@ io.on('connection', function(socket) {
       //console.log(res.context.skills["main skill"].user_defined);
       var queryString = "";
       var answer = [];
-      var interest = "";
+      var city = "";
       //console.log(skills);
       if(skills){
-        if(skills.interest){
-          console.log('interest');
-          console.log(skills.interest);
-          switch(skills.interest){
-	
-              var choseninterest = skill.interest[0].value;
-              console.log(choseninterest);
-	
-              queryString = "enriched_text.concepts.text:"+skill.interest+"",
-              queryDiscovery(queryString, (err,queryResults) =>{
-              console.log(err+"I am here");
-              if(err){
-                console.log(err);
-              }
-	
-              queryResults = queryResults.passages[0].passages_text;
-              console.log(queryResults);
+        if(skills.best){
+          console.log('best');
+          console.log(skills.best);
+          switch(skills.best){
+            default: queryString = "enriched_text.concepts.text:"+skills.interest+"",
+            queryDiscovery(queryString, (err,queryResults) =>{
+            console.log(err+"I am here");
+            if(err){
+              console.log(err);
+            }
+
+            queryResults = queryResults.passages[0].passages_text;
+            console.log(queryResults);
+            })
           }
+        }
+           
+    
       } else{
         io.emit('chat message',"Hotel BOT: " + reply);
       }
@@ -161,7 +161,7 @@ function queryDiscovery(query,callback){
   let queryParams ={
     environment_id: process.env.ENVIRONMENT_ID,
     collection_id: process.env.COLLECTION_ID,
-    passage: query
+    aggregation: query
   };
   console.log(queryParams);
   discovery.query(queryParams)
@@ -180,3 +180,4 @@ function queryDiscovery(query,callback){
       callback(err,null);
     });
 };
+
