@@ -113,13 +113,13 @@ io.on('connection', function(socket) {
       //console.log(res.context.skills["main skill"].user_defined);
       var queryString = "";
       var answer = [];
-      var city = "";
+      var interest = "";
       //console.log(skills);
       if(skills){
-        if(skills.best){
+        if(skills.interest){
           console.log('best');
-          console.log(skills.best);
-          switch(skills.best){
+          console.log(skills.interest);
+          switch(skills.interest){
             default: queryString = "enriched_text.concepts.text:"+skills.interest+"",
             queryDiscovery(queryString, (err,queryResults) =>{
             console.log(err+"I am here");
