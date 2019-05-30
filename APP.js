@@ -117,7 +117,7 @@ io.on('connection', function(socket) {
       //console.log(skills);
       if(skills){
         if(skills.interest){
-          console.log('best');
+          console.log('interest');
           console.log(skills.interest);
           switch(skills.interest){
             default: queryString = "enriched_text.concepts.text:"+skills.interest+"",
