@@ -120,7 +120,7 @@ io.on('connection', function(socket) {
           console.log('interest');
           console.log(skills.interest);
           switch(skills.interest){
-            default: queryString = "enriched_text.concepts.text:"+skills.interest+"",
+            default: queryString = "skills.interest",
             queryDiscovery(queryString, (err,queryResults) =>{
             console.log(err+"I am here");
             if(err){
@@ -132,6 +132,7 @@ io.on('connection', function(socket) {
             })
           }
         }
+        io.emit('chat message',"Hotel BOT: " + reply);
            
     
       } else{
@@ -180,4 +181,3 @@ function queryDiscovery(query,callback){
       callback(err,null);
     });
 };
-
