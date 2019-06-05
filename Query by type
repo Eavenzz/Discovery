@@ -1,0 +1,2 @@
+To query by type:
+nested(enriched_text.entities).filter(enriched_text.entities.type::Quantity).term(enriched_text.entities.text,count:10)
