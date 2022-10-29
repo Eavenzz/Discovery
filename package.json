@@ -16,7 +16,7 @@
     "express": "*",
     "request": "*",
     "request-promise": "*",
-    "socket.io": "2.0.3",
+    "socket.io": "2.5.0",
     "watson-developer-cloud": "^4.0.1"
   }
 }
